@@ -1,0 +1,165 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.appsmatic.com.iwishdriversapp.Fragments.Profile">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:background="@drawable/photo_area_backg"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/profilepic"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_centerHorizontal="true" />
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#cbcbcb"
+        android:padding="10dp"
+        android:gravity="bottom"
+        android:id="@+id/linearLayout2">
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ToggleButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/driver_status_profile"
+                android:button="@drawable/driverstatusbtn"
+                android:checked="false"
+                android:background="#cbcbcb"
+                android:textOff="OFF LINE"
+                android:textOn="ON LINE"
+                android:padding="10dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Sign Out"
+                android:id="@+id/signoutBtn"
+                android:gravity="center"
+                android:padding="11dp"
+                android:textColor="#ff2b00"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/info_white_backg"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView4"
+                android:src="@drawable/info_username_icon"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="3"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Driver Name"
+                android:id="@+id/pr_driver_name"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:gravity="center|left" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/info_white_backg"
+            android:padding="5dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView5"
+                android:src="@drawable/info_phone_number_icon"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="3"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Mobile Number"
+                android:id="@+id/pr_driver_phone"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:gravity="center|left" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/info_white_backg"
+            android:padding="5dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView7"
+                android:src="@drawable/info_car_icon"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="3"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="VehiclePlateNo"
+                android:id="@+id/pr_driver_car"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:gravity="center|left" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

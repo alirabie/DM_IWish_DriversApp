@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:layout_marginBottom="10dp"
+    android:padding="10dp"
+    android:id="@+id/layout">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Order#"
+        android:id="@+id/textView8"
+        android:layout_marginTop="14dp"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="40"
+        android:id="@+id/orderid"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/textView8"
+        android:layout_toRightOf="@+id/textView8"
+        android:layout_toEndOf="@+id/textView8"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Ali Rabie Ali ElMshad"
+        android:id="@+id/tv_customername"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/textView8"
+        android:layout_alignLeft="@+id/textView8"
+        android:layout_alignStart="@+id/textView8"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/callbtn"
+        android:background="@drawable/buttons_orange"
+        android:src="@drawable/icon_call_button"
+        android:padding="15dp"
+        android:layout_alignTop="@+id/smsbtn"
+        android:layout_alignLeft="@+id/statusbtn"
+        android:layout_alignStart="@+id/statusbtn" />
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:id="@+id/smsbtn"
+        android:src="@drawable/icon_ms_button"
+        android:background="@drawable/buttons_orange"
+        android:padding="15dp"
+        android:layout_marginRight="19dp"
+        android:layout_marginEnd="19dp"
+        android:layout_alignTop="@+id/tv_customername"
+        android:layout_toLeftOf="@+id/mapbtn"
+        android:layout_toStartOf="@+id/mapbtn" />
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:id="@+id/mapbtn"
+        android:padding="15dp"
+        android:background="@drawable/buttons_orange"
+        android:src="@drawable/icon_map_button"
+        android:layout_alignTop="@+id/smsbtn"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Total Price : 25 SR"
+        android:id="@+id/tv_price"
+        android:background="#d4d4d4"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:layout_alignBottom="@+id/statusbtn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Confirm"
+        android:id="@+id/statusbtn"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:background="@drawable/button_green"
+        android:gravity="center"
+        android:layout_below="@+id/smsbtn"
+        android:layout_alignRight="@+id/mapbtn"
+        android:layout_alignEnd="@+id/mapbtn"
+        android:layout_marginTop="17dp" />
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Show Order"
+        android:id="@+id/statusbtnok"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:background="@drawable/button_green"
+        android:gravity="center"
+        android:layout_below="@+id/smsbtn"
+        android:layout_alignRight="@+id/mapbtn"
+        android:layout_alignEnd="@+id/mapbtn"
+        android:layout_marginTop="17dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="23 Min"
+        android:id="@+id/tv_duration"
+        android:textColor="#ff6a00"
+        android:layout_alignTop="@+id/orderid"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

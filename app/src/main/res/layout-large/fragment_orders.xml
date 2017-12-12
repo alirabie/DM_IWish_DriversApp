@@ -1,0 +1,37 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.appsmatic.com.iwishdriversapp.Fragments.Orders">
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/orderlist"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:background="#c4c4c4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="No Orders"
+        android:id="@+id/no_orders"
+        android:layout_gravity="center"
+        android:textSize="35dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Click to update Orders List"
+        android:id="@+id/ref"
+        android:layout_gravity="center_horizontal|bottom"
+        android:background="#ff3700"
+        android:textSize="20dp"
+        android:textColor="#ffffff" />
+
+
+</FrameLayout>
