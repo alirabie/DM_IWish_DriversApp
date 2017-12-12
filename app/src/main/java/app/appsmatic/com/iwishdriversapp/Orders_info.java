@@ -24,6 +24,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -93,6 +96,9 @@ public class Orders_info extends FragmentActivity implements OnMapReadyCallback 
         coment_tv.setText(comit);
 
 
+        //Set Time to Order in orders info
+        duration=(TextView)findViewById(R.id.timetodlver);
+        duration.setText(time);
 
 
         //Packed And Delevered Order Config
@@ -238,7 +244,7 @@ public class Orders_info extends FragmentActivity implements OnMapReadyCallback 
             @Override
             public void onResponse(Call<ResOrderDetails> call, Response<ResOrderDetails> response) {
 
-                if(response.isSuccess()) {
+                if (response.isSuccess()) {
                     itemslist = (RecyclerView) findViewById(R.id.item_order_list);
                     itemslist.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                     itemslist.setAdapter(new Items_Adb(getApplicationContext(), response.body().getMessage()));
@@ -249,7 +255,7 @@ public class Orders_info extends FragmentActivity implements OnMapReadyCallback 
                     id2.setText("Order# " + orderId);
                     name.setText(custmerName);
                     tv_total_price.setText("Total Price : " + totalprice + " SR");
-                }else {
+                } else {
 
 
                     final AlertDialog.Builder builder = new AlertDialog.Builder(Orders_info.this);
@@ -271,7 +277,7 @@ public class Orders_info extends FragmentActivity implements OnMapReadyCallback 
             @Override
             public void onFailure(Call<ResOrderDetails> call, Throwable t) {
 
-                Toast.makeText(getApplicationContext(),t.getMessage()+"",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), t.getMessage() + "", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -331,7 +337,7 @@ public class Orders_info extends FragmentActivity implements OnMapReadyCallback 
             public void onClick(View v) {
 
                 try {
-                    String uri = "tel:"+phoneNum;
+                    String uri = "tel:" + phoneNum;
                     Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse(uri));
                     callIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     callIntent.addFlags(Intent.FLAG_FROM_BACKGROUND);
@@ -368,24 +374,8 @@ public class Orders_info extends FragmentActivity implements OnMapReadyCallback 
 
 
 
-        //Set Time to Order in orders info
-        duration=(TextView)findViewById(R.id.timetodlver);
 
-        if(time==null){
 
-            duration.setText("Not Set");
-
-        }else{
-/*
-            String ackwardDate=time;
-            Calendar calendar = Calendar.getInstance();
-            String ackwardRipOff = ackwardDate.replace("/Date(", "").replace(")/", "");
-            Long timeInMillis = Long.valueOf(ackwardRipOff);
-            calendar.setTimeInMillis(timeInMillis);
-            */
-            duration.setText(time+"");
-
-        }
 
 
 

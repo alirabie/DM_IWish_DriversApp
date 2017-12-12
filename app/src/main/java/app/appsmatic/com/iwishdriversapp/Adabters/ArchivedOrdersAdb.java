@@ -7,7 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+
 import app.appsmatic.com.iwishdriversapp.API.Models.ArchivedOrder;
 import app.appsmatic.com.iwishdriversapp.R;
 
@@ -40,19 +45,34 @@ public class ArchivedOrdersAdb extends RecyclerView.Adapter<ArchivedOrdersAdb.vh
     public void onBindViewHolder(vh2 holder, int position) {
 
 
-        /*
-        String ackwardDate = archivedOrders.get(position).getOrderDate();
-        Calendar calendar = Calendar.getInstance();
-        String ackwardRipOff = ackwardDate.replace("/Date(", "").replace(")/", "");
-        Long timeInMillis = Long.valueOf(ackwardRipOff);
-        calendar.setTimeInMillis(timeInMillis);
-        SimpleDateFormat timef = new SimpleDateFormat("hh:mm:ss");
-        SimpleDateFormat datef = new SimpleDateFormat("dd:MM:yyyy:EEE");
-*/
+
+        //Date setup
+        SimpleDateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        SimpleDateFormat DesiredFormat = new SimpleDateFormat("hh:mm a", Locale.ENGLISH);
+        SimpleDateFormat DateFormat=new SimpleDateFormat("yyyy/MM/dd",Locale.ENGLISH);
+        Date time = null;
+        try {
+            time = sourceFormat.parse(archivedOrders.get(position).getAssignedDate()+"");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        Date date=null;
+        try {
+            date = sourceFormat.parse(archivedOrders.get(position).getOrderDate()+"");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+        String timeTv = DesiredFormat.format(time.getTime());
+        String dateTv=DateFormat.format(date);
+
+
         holder.orderid.setText(archivedOrders.get(position).getOrderID() + "");
         holder.price.setText(archivedOrders.get(position).getTotalAmount()+"");
-        holder.date.setText(archivedOrders.get(position).getOrderDate()+"");
-        holder.time.setText(archivedOrders.get(position).getAssignedDate()+"");
+        holder.date.setText(dateTv);
+        holder.time.setText(timeTv);
 
 
 

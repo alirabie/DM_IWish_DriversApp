@@ -19,9 +19,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import app.appsmatic.com.iwishdriversapp.API.DriversApi;
 import app.appsmatic.com.iwishdriversapp.API.Genrator;
@@ -93,6 +97,44 @@ public class OrdersAdb extends RecyclerView.Adapter<OrdersAdb.vh> {
         holder.orderId.setText(orders.get(position).getOrderID()+"");
         holder.custName.setText(orders.get(position).getCustomer()+"");
         holder.totalPrice.setText("Total Price : " + orders.get(position).getTotalAmount() + " SR");
+
+        //Set Time to Order in order List item
+
+        if(orders.get(position).getTimeToRecieve()==null){
+
+            holder.duration.setText("Not Set");
+
+        }else{
+
+
+
+            //Date setup
+            SimpleDateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+            SimpleDateFormat DesiredFormat = new SimpleDateFormat("hh:mm a", Locale.ENGLISH);
+            SimpleDateFormat DateFormat=new SimpleDateFormat("yyyy/MM/dd",Locale.ENGLISH);
+            Date time = null;
+            try {
+                time = sourceFormat.parse(orders.get(position).getTimeToRecieve()+"");
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            Date date=null;
+            try {
+                date = sourceFormat.parse(orders.get(position).getTimeToRecieve()+"");
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+
+            String timeTv = DesiredFormat.format(time.getTime());
+            String dateTv=DateFormat.format(date);
+
+
+            holder.duration.setText(dateTv+" "+timeTv);
+
+        }
+
 
         //Call Button
 
@@ -239,7 +281,7 @@ public class OrdersAdb extends RecyclerView.Adapter<OrdersAdb.vh> {
                         .putExtra("statusID", orders.get(position).getStatusID())
                         .putExtra("custname", orders.get(position).getCustomer() + " ")
                         .putExtra("orderId", orders.get(position).getOrderID().toString())
-                        .putExtra("ordertime",orders.get(position).getTimeToRecieve())
+                        .putExtra("ordertime",holder.duration.getText().toString())
                         .putExtra("lat", orders.get(position).getLatitude())
                         .putExtra("lng", orders.get(position).getLongtitude())
                         .putExtra("comment", orders.get(position).getDeliveryAddress()+" "));
@@ -251,23 +293,6 @@ public class OrdersAdb extends RecyclerView.Adapter<OrdersAdb.vh> {
 
 
 
-        //Set Time to Order in order List item
-
-        if(orders.get(position).getTimeToRecieve()==null){
-
-            holder.duration.setText("Not Set");
-
-        }else{
-            /*
-            String ackwardDate=orders.get(position).getTimeToRecieve();
-            Calendar calendar = Calendar.getInstance();
-            String ackwardRipOff = ackwardDate.replace("/Date(", "").replace(")/", "");
-            Long timeInMillis = Long.valueOf(ackwardRipOff);
-            calendar.setTimeInMillis(timeInMillis);
-            */
-            holder.duration.setText(orders.get(position).getTimeToRecieve()+"");
-
-        }
 
 
 
